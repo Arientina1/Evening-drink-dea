@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body style="background-image: url('1709301015299.jpg');" onclick="changeText()">
+  <div id="content">
+    <div id="surpriseText">Click "Yes" for a surprise!</div>
+    <button id="yesButton" onclick="revealSurprise()">Yes</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html><style>body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+#content {
+  text-align: center;
+}
+
+#surpriseText {
+  font-size: 2em;
+  transition: opacity 0.5s;
+}
+
+#yesButton {
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+}</style><script>function revealSurprise() {
+  document.getElementById("surpriseText").innerText = "Surprise!";
+  document.getElementById("surpriseText").style.opacity = 1;
+}
+
+function changeText() {
+  document.getElementById("surpriseText").innerText = "Click \"Yes\" for a surprise!";
+  document.getElementById("surpriseText").style.opacity = 0.8;
+}</script>
