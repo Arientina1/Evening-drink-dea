@@ -3,47 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    #content {
+      text-align: center;
+    }
+
+    #headerText {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    #mainText {
+      margin-bottom: 20px;
+    }
+
+    #changeBackgroundBtn {
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+  </style>
 </head>
-<body style="background-image: url('6UjB2fZ.jpg');" onclick="changeText()">
+<body>
   <div id="content">
-    <div id="surpriseText">Click "Yes" for a surprise!</div>
-    <button id="yesButton" onclick="revealSurprise()">Yes</button>
+    <div id="headerText">Drink tea and be happy</div>
+    <div id="mainText">This is some normal text in the middle of the page.</div>
+    <button id="changeBackgroundBtn" onclick="changeBackground()">Pirk</button>
   </div>
-  <script src="script.js"></script>
+  <script>
+    const backgrounds = [
+      'url('your_first_image_url.jpg')',
+      'url('your_second_image_url.jpg')'
+    ];
+
+    let currentBackgroundIndex = 0;
+
+    function changeBackground() {
+      currentBackgroundIndex = (currentBackgroundIndex + 1) % backgrounds.length;
+      document.body.style.backgroundImage = backgrounds[currentBackgroundIndex];
+    }
+  </script>
 </body>
-</html><style>body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-size: cover;
-  background-position: center;
-  font-family: Arial, sans-serif;
-  color: white;
-}
-
-#content {
-  text-align: center;
-}
-
-#surpriseText {
-  font-size: 2em;
-  transition: opacity 0.5s;
-}
-
-#yesButton {
-  padding: 10px 20px;
-  font-size: 1em;
-  cursor: pointer;
-}</style><script>function revealSurprise() {
-  document.getElementById("surpriseText").innerText = "Surprise!";
-  document.getElementById("surpriseText").style.opacity = 1;
-}
-
-function changeText() {
-  document.getElementById("surpriseText").innerText = "Click \"Yes\" for a surprise!";
-  document.getElementById("surpriseText").style.opacity = 0.8;
-}</script>
+</html>
